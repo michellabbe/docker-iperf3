@@ -4,10 +4,8 @@ MAINTAINER Michel Labbe
 
 # build intial apt binary cache and install iperf3
 RUN apt-get update \
-    && apt-get install -y iperf3
-
-# clean up cached binaries after install
-RUN apt-get clean
+    && apt-get install -y iperf3 \
+	&& apt-get clean
 
 # Expose the default iperf3 server ports
 EXPOSE 5201
