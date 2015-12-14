@@ -3,9 +3,10 @@ FROM debian:latest
 MAINTAINER Michel Labbe
 
 # build intial apt binary cache and install iperf3
-RUN apt-get update \
-	&& apt-get install -y iperf3 \
-	&& apt-get clean
+RUN apt-get update && apt-get install -y \
+	iperf3 \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
 
 # Expose the default iperf3 server ports
 EXPOSE 5201
