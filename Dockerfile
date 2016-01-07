@@ -1,4 +1,4 @@
-FROM debian:wheezy
+FROM debian:latest
 
 MAINTAINER Michel Labbe
 
@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y iperf3   && \
     apt-get clean   && \
     rm -rf /var/lib/apt/lists/*
 
-# Expose the default iperf3 server ports
+# Expose the default iperf3 server port
 EXPOSE 5201
 
 # entrypoint allows you to pass your arguments to the container at runtime
@@ -18,13 +18,3 @@ ENTRYPOINT ["iperf3"]
 
 # iperf -s = run in Server mode
 CMD ["-s"]
-
-
-# docker run --restart=unless-stopped -d -p 5201:5201 mlabbe/iperf3
-
-# You can run the server with
-#
-# docker run mlabbe/iperf3
-# and the client with
-#
-# docker run mlabbe/iperf3 -c <SERVER_IP>
