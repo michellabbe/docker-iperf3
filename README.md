@@ -2,7 +2,7 @@
 
 # docker: iperf3
 
-This is a Docker image to run the [iperf3](https://github.com/esnet/iperf) commandline tool for benchmarking network performance.
+This is a Docker image to run the [iperf3](https://github.com/esnet/iperf) commandline tool in server mode for benchmarking network performance.
 
 Total size of this image is:
 
@@ -18,7 +18,7 @@ ________________________________________
 ### Running the image
 In order to run the iperf server, use the following:
 ```sh
-docker run --name=iperf3 -d -p 5201:5201 mlabbe/iperf3
+docker run --restart=unless-stopped --name=iperf3 -d -p 5201:5201 mlabbe/iperf3
 ```
-At that point, you can use your Docker server as an iperf server to begin
+At that point, you can use your Docker server as an iperf3 server to begin
 benchmarking your network speeds.
