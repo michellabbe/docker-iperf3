@@ -1,13 +1,13 @@
 FROM debian:latest
-#FROM debian:wheezy
+#FROM debian:jessie
 
 MAINTAINER Michel Labbe
 
 # build intial apt binary cache and install iperf3
-RUN apt-get update && apt-get install -y iperf3   && \
-    apt-get clean   && \
-    rm -rf /var/lib/apt/lists/*   && \
-    useradd -r iperf
+RUN apt-get update && apt-get install -y iperf3 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && useradd -r iperf
     
 USER iperf
     
