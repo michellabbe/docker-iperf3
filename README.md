@@ -6,7 +6,7 @@ This is a Docker image to run the [iperf3](https://github.com/esnet/iperf) comma
 
 Total size of this image is:
 
-[![](https://badge.imagelayers.io/mlabbe/iperf3:latest.svg)](https://imagelayers.io/?images=mlabbe/iperf3:latest)
+[![](https://images.microbadger.com/badges/image/mlabbe/iperf3.svg)](https://microbadger.com/images/mlabbe/iperf3)
 
 ________________________________________
 ### Pulling from Docker hub
