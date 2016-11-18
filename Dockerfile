@@ -3,8 +3,14 @@ FROM debian:latest
 
 MAINTAINER Michel Labbe
 
-# build intial apt binary cache and install iperf3
-RUN apt-get update && apt-get install -y iperf3 \
+RUN apt-get update && apt-get install -y wget \
+    && wget https://iperf.fr/download/ubuntu/libiperf0_3.1.3-1_amd64.deb \
+         -O /tmp/libiperf0_3.1.3-1_amd64.deb \
+    && wget https://iperf.fr/download/ubuntu/iperf3_3.1.3-1_amd64.deb \
+         -O /tmp/iperf3_3.1.3-1_amd64.deb \
+    && dpkg -i /tmp/libiperf0_3.1.3-1_amd64.deb /tmp/iperf3_3.1.3-1_amd64.deb \
+    && rm /tmp/libiperf0_3.1.3-1_amd64.deb /tmp/iperf3_3.1.3-1_amd64.deb \
+    && apt-get autoremove -y --purge $BUILD_PACKAGES $(apt-mark showauto) wget \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && useradd -r iperf
