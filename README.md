@@ -4,6 +4,10 @@
 
 This is a Docker image to run the [iperf3](https://github.com/esnet/iperf) commandline tool in server mode for benchmarking network performance.
 
+- Runs as non-root user
+- Small image size
+- Small number of layers
+
 Total size of this image is:
 
 [![](https://images.microbadger.com/badges/image/mlabbe/iperf3.svg)](https://microbadger.com/images/mlabbe/iperf3)
