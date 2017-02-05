@@ -2,7 +2,7 @@
 
 # docker: iperf3
 
-This is a Docker image to run the [iperf3](https://github.com/esnet/iperf) commandline tool in server mode for benchmarking network performance.
+This is a Docker image to run the [iperf3](https://iperf.fr/) commandline tool in server mode for benchmarking network performance.
 
 - Runs as non-root user
 - Small image size
