@@ -4,6 +4,28 @@
 
 This is a Docker image to run the [iperf3](https://github.com/esnet/iperf) commandline tool in server mode for benchmarking network performance.
 
+```sh
+Connecting to host speedtest.mydomain.local, port 5201
+[  4] local 192.168.1.100 port 53917 connected to 192.168.1.50 port 5201
+[ ID] Interval           Transfer     Bandwidth
+[  4]   0.00-1.00   sec   112 MBytes   941 Mbits/sec
+[  4]   1.00-2.00   sec   112 MBytes   942 Mbits/sec
+[  4]   2.00-3.00   sec   112 MBytes   942 Mbits/sec
+[  4]   3.00-4.00   sec   112 MBytes   943 Mbits/sec
+[  4]   4.00-5.00   sec   112 MBytes   941 Mbits/sec
+[  4]   5.00-6.00   sec   112 MBytes   942 Mbits/sec
+[  4]   6.00-7.00   sec   112 MBytes   942 Mbits/sec
+[  4]   7.00-8.00   sec   112 MBytes   942 Mbits/sec
+[  4]   8.00-9.00   sec   112 MBytes   942 Mbits/sec
+[  4]   9.00-10.00  sec   112 MBytes   942 Mbits/sec
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bandwidth
+[  4]   0.00-10.00  sec  1.10 GBytes   942 Mbits/sec                  sender
+[  4]   0.00-10.00  sec  1.10 GBytes   942 Mbits/sec                  receiver
+
+iperf Done.
+```
+
 - Runs as non-root user
 - Small image size
 - Small number of layers
