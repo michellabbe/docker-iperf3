@@ -1,9 +1,9 @@
 FROM alpine:latest
-#FROM alpine:3.5
+#FROM alpine:3.6
 
 MAINTAINER Michel Labbe
 
-# build intial apt binary cache and install iperf3
+# build intial apk binary cache and install iperf3
 RUN apk --update add iperf3 \
     && rm -rf /var/cache/apk/* \
     && adduser -S iperf
