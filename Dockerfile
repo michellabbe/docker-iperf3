@@ -1,5 +1,5 @@
 FROM alpine:latest
-#FROM alpine:3.10.1
+#FROM alpine:3.11.2
 
 MAINTAINER Michel Labbe
 
