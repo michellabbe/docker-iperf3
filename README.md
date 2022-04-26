@@ -1,6 +1,6 @@
 # iperf3
 
-[![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/mlabbe/iperf3/latest?logo=docker)](https://hub.docker.com/r/mlabbe/iperf3 "Docker Hub Repository") ![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/mlabbe/iperf3/latest?logo=docker) ![MicroBadger Layers (tag)](https://img.shields.io/microbadger/layers/mlabbe/iperf3/latest?logo=docker) ![User Privilege](https://img.shields.io/badge/user%20privilege-non--root-success?logo=docker) ![Health Check](https://img.shields.io/badge/health%20check-yes-success?logo=docker)  
+[![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/mlabbe/iperf3/latest?logo=docker)](https://hub.docker.com/r/mlabbe/iperf3 "Docker Hub Repository") ![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/mlabbe/iperf3/latest?logo=docker) ![User Privilege](https://img.shields.io/badge/user%20privilege-non--root-success?logo=docker) ![Health Check](https://img.shields.io/badge/health%20check-yes-success?logo=docker)  
 ![Docker Pulls](https://img.shields.io/docker/pulls/mlabbe/iperf3?logo=docker) ![Docker Stars](https://img.shields.io/docker/stars/mlabbe/iperf3?logo=docker) ![GitHub License](https://img.shields.io/github/license/michellabbe/docker-iperf3?logo=github) 
 
 This is a Docker image to run the [iperf3](https://github.com/esnet/iperf) commandline tool in server mode.
