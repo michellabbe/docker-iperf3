@@ -1,5 +1,6 @@
-FROM alpine:latest
-#FROM alpine:3.13.1
+FROM alpine:3.14.6
+#Current alpine:latest has some vulnerabilities, 3.14.6 has none
+#FROM alpine:3.14.6
 
 LABEL maintainer="Michel Labbe"
 
