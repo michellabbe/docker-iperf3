@@ -1,4 +1,4 @@
-FROM alpine:3.20.3
+FROM alpine:3
 
 LABEL maintainer="Michel Labbe"
 
