@@ -1,7 +1,12 @@
 # iperf3
 
-[![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/mlabbe/iperf3/latest?logo=docker)](https://hub.docker.com/r/mlabbe/iperf3 "Docker Hub Repository") ![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/mlabbe/iperf3/latest?logo=docker) ![User Privilege](https://img.shields.io/badge/user%20privilege-non--root-success?logo=docker) ![Health Check](https://img.shields.io/badge/health%20check-yes-success?logo=docker)  
-![Docker Pulls](https://img.shields.io/docker/pulls/mlabbe/iperf3?logo=docker) ![Docker Stars](https://img.shields.io/docker/stars/mlabbe/iperf3?logo=docker) ![GitHub License](https://img.shields.io/github/license/michellabbe/docker-iperf3?logo=github) 
+[![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/mlabbe/iperf3/latest?logo=docker)](https://hub.docker.com/r/mlabbe/iperf3 "Docker Hub Repository")
+![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/mlabbe/iperf3/latest?logo=docker)
+![User Privilege](https://img.shields.io/badge/user%20privilege-non--root-success?logo=docker)
+![Health Check](https://img.shields.io/badge/health%20check-yes-success?logo=docker)  
+![Docker Pulls](https://img.shields.io/docker/pulls/mlabbe/iperf3?logo=docker)
+![Docker Stars](https://img.shields.io/docker/stars/mlabbe/iperf3?logo=docker)
+![GitHub License](https://img.shields.io/github/license/michellabbe/docker-iperf3?logo=github)
 
 This is a Docker image to run the [iperf3](https://github.com/esnet/iperf) commandline tool in server mode.
 iPerf3 (iPerf v3) is a tool for active measurements of the maximum achievable bandwidth on IP networks.
@@ -9,6 +14,7 @@ It supports tuning of various parameters related to timing, buffers and protocol
 For each test it reports the bandwidth, loss, and other parameters.
 
 ________________________________________
+
 ```sh
 C:\Users\Example>iperf3 -c speedtest.mydomain.local
 Connecting to host speedtest.mydomain.local, port 5201
@@ -31,7 +37,9 @@ Connecting to host speedtest.mydomain.local, port 5201
 
 iperf Done.
 ```
+
 ________________________________________
+
 ```sh
 C:\Users\Example>iperf3 -R -O 1 -u -b 50M -c speedtest.mydomain.local
 Connecting to host speedtest.mydomain.local, port 5201
@@ -55,7 +63,9 @@ Reverse mode, remote host speedtest.mydomain.local is sending
 
 iperf Done.
 ```
+
 ________________________________________
+
 - Runs as non-root user
 - Small image size
 - Small number of layers
@@ -63,15 +73,23 @@ ________________________________________
 - Healthcheck support
 
 ________________________________________
-### Pulling from Docker hub
+
+## Pulling from Docker hub
+
 If you want to obtain the image from Docker registry, you can use the following command:
+
 ```sh
 docker pull mlabbe/iperf3
 ```
+
 ________________________________________
-### Running the image
+
+## Running the image
+
 In order to run the iperf server, use the following:
+
 ```sh
 docker run --name=iperf3 -d --restart=unless-stopped -p 5201:5201/tcp -p 5201:5201/udp mlabbe/iperf3
 ```
+
 At that point, you can use your Docker server as an iperf3 server to begin testing your network.
