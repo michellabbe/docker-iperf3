@@ -1,0 +1,49 @@
+ARG BASE_IMAGE=dhi.io/alpine-base
+ARG BASE_IMAGE_VERSION=3.23
+
+# Build stage - use image with "-dev" tag which includes shell and package manager
+FROM ${BASE_IMAGE}:${BASE_IMAGE_VERSION}-dev AS builder
+
+LABEL maintainer="Michel Labbe"
+
+RUN apk add --no-cache pax-utils iperf3
+
+
+
+
+# Collector stage - Detect/export dependencies
+FROM builder AS collector
+
+RUN mkdir -p /export/usr/bin /export/usr/lib
+
+# Copy binary
+RUN cp /usr/bin/iperf3 /export/usr/bin/
+
+# Use scanelf to find needed libraries and copy them
+RUN scanelf -n /usr/bin/iperf3 | grep -o 'lib[^,]*' | while read lib; do \
+      # Find the actual file (handling symlinks)
+      find /usr/lib /lib -name "$lib*" -type f -exec cp -v {} /export/usr/lib/ \; 2>/dev/null || true; \
+      # Also copy symlinks
+      find /usr/lib /lib -name "$lib*" -type l -exec cp -av {} /export/usr/lib/ \; 2>/dev/null || true; \
+    done
+
+# Final stage - use hardened image.  No shell, no package manager.
+FROM ${BASE_IMAGE}:${BASE_IMAGE_VERSION} AS final
+
+COPY --from=collector /export/ /
+
+USER nonroot
+
+# Expose the default iperf3 server port
+EXPOSE 5201/tcp 5201/udp
+
+# Health check floods log window quite a bit.
+# If needed you can change/disable health check when starting container.
+# See Docker run reference documentation for more information.
+
+HEALTHCHECK --timeout=3s \
+ CMD iperf3 -k 1 -c 127.0.0.1 || exit 1
+
+# iperf3 -s = run in Server mode
+ENTRYPOINT ["iperf3"]
+CMD ["-s"]
